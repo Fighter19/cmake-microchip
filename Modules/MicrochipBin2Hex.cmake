@@ -50,7 +50,7 @@ function(bin2hex target)
     add_custom_command(
         TARGET ${target} POST_BUILD
         WORKING_DIRECTORY ${dir}
-        COMMAND "${MICROCHIP_BIN2HEX}" "${in_f}"
+        COMMAND "${MICROCHIP_BIN2HEX}" $<TARGET_FILE:${target}>
         BYPRODUCTS ${dir}/${out_f}
         VERBATIM
     )
